@@ -24,22 +24,6 @@ Claude never directly connects to identity providers and never sees credentials.
 
 This is an analysis and investigation interface, designed to be safe, explainable, and extensible.
 
-## Architecture
-
-```
-Claude Desktop
-  |
-  | Model Context Protocol (stdio)
-  |
-  |-- mcp-server-entra (Local Node.js App)
-  |     |
-  |     |-- Microsoft Graph API (Entra ID)
-  |
-  |-- mcp-server-okta (Local Node.js App)
-        |
-        |-- Okta OAuth API
-```
-
 Each MCP server runs locally as a separate Node.js application and communicates with Claude Desktop using standard input and output via the Model Context Protocol.
 
 All cloud access is performed by the local servers using scoped OAuth credentials.
